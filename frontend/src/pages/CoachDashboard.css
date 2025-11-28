@@ -1,0 +1,194 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: var(--gray-600);
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tab:hover {
+  color: var(--gray-900);
+}
+
+.tab.active {
+  color: var(--primary);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--danger);
+  color: white;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.award-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 12px;
+  background: var(--gray-50);
+  border-bottom: 2px solid var(--gray-200);
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 14px;
+}
+
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-900);
+  font-size: 14px;
+}
+
+.data-table tr:hover {
+  background: var(--gray-50);
+}
+
+.points-cell {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.claims-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.claim-item {
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.claim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.claim-header strong {
+  font-size: 16px;
+  color: var(--gray-900);
+}
+
+.claim-branch {
+  margin-left: 12px;
+  padding: 2px 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--gray-700);
+}
+
+.claim-date {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.claim-event {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.claim-description {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--gray-800);
+  line-height: 1.5;
+}
+
+.claim-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.season-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 8px;
+}
+
+.season-detail {
+  font-size: 15px;
+  color: var(--gray-700);
+}
+
+.season-detail strong {
+  color: var(--gray-900);
+  margin-right: 8px;
+}
+
+.season-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.season-warning {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
