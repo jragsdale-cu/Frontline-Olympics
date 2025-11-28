@@ -1,318 +1,168 @@
 # Teller Olympics 🏅
 
-A fun and engaging gamification web application for credit union frontline staff (tellers, MSRs, MSOs, and branch managers). Track performance, earn badges, and compete with your team!
+An interactive browser-based Olympic games collection where players compete in fun mini-games and track their high scores!
 
-## 🎯 Overview
+## 🎮 Games
 
-Teller Olympics is a lightweight points and badges system where frontline staff earn recognition for:
-- Balancing correctly
-- Getting member compliments
-- Completing cross-sells
-- Providing exceptional service
-- Finishing daily tasks and checklists
+### 🏃 Sprint Race
+Click as fast as you can to run 100 meters! Your clicks power your runner forward. Race against the clock and see how fast you can finish!
 
-Branch leaders can award points, manage challenges, and track standings. The game operates on a weekly season cycle (customizable).
+**Objective**: Complete 100m in the fastest time
+**Scoring**: Lower time is better
 
-## 🚀 Features
+### 🎯 Target Practice
+Click the appearing targets before they disappear! Build up combos for bonus points. Fast reflexes and accuracy are key!
 
-### For Players (Tellers/MSRs/MSOs)
-- **Personal Dashboard**: View your points, rank, and badges
-- **Today's Highlights**: See today's achievements
-- **Badge Gallery**: Browse earned and locked badges
-- **Self-Claim Achievements**: Submit your accomplishments for coach approval
-- **Leaderboard**: Compare your performance with teammates
+**Objective**: Hit as many targets as possible in 30 seconds
+**Scoring**: 10 points per target × combo multiplier
+**Pro Tip**: Keep your combo going for massive scores!
 
-### For Coaches (Managers/Supervisors)
-- **Award Points**: Quickly award points to team members
-- **Review Self-Claims**: Approve or reject player-submitted achievements
-- **Season Management**: Reset seasons and view historical data
-- **Leaderboard Views**: Track performance by player or branch
+### ⚡ Reaction Test
+Test your reflexes! Wait for the green light, then click as fast as you can. Complete 5 rounds and get your average reaction time.
 
-### Game Mechanics
-- **Points System**: Earn points for completing events
-- **Badges**: Unlock achievements based on milestones
-- **Leaderboard**: Rankings by individual player and branch
-- **Seasons**: Weekly competition cycles with historical tracking
+**Objective**: Click when you see green (not before!)
+**Scoring**: Based on your average reaction time (faster = higher score)
+**Warning**: Clicking too early will reset your combo!
 
-## 📋 Tech Stack
+## 🚀 Quick Start
 
-### Frontend
-- React 18
-- React Router DOM
-- Vite (build tool)
-- CSS3 (custom styling)
-
-### Backend
-- Node.js
-- Express
-- In-memory data store (easily replaceable with database)
-- CORS enabled for development
-
-## 🛠️ Installation & Setup
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Frontline-Olympics
-   ```
-
-2. **Install dependencies**
+1. **Install dependencies**
    ```bash
    npm run install:all
    ```
-   This will install dependencies for root, frontend, and backend.
 
-3. **Start the application**
+2. **Start the game**
    ```bash
    npm start
    ```
-   This runs both frontend and backend concurrently:
+
+3. **Play!**
    - Frontend: http://localhost:3000
-   - Backend API: http://localhost:3001
+   - Enter your name and start competing!
 
-### Manual Setup (Alternative)
+## 🏆 Features
 
-If you prefer to run frontend and backend separately:
+- **3 Fun Mini-Games**: Sprint, Target Practice, and Reaction Test
+- **Persistent Leaderboard**: All scores saved in browser localStorage
+- **Medal System**: 🥇🥈🥉 for top 3 scores
+- **Personal Bests**: Track your improvement over time
+- **Filter Leaderboard**: View scores by game or see all together
+- **Clean UI**: Colorful, game-like design with smooth animations
+- **Mobile Friendly**: Play on any device
 
-1. **Terminal 1 - Backend**
-   ```bash
-   cd backend
-   npm install
-   npm run dev
-   ```
+## 📊 How Scoring Works
 
-2. **Terminal 2 - Frontend**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+**Sprint Race**: Time-based (lower is better)
+- Record your fastest 100m time
+- Track total clicks and average speed
 
-## 📱 Usage Guide
+**Target Practice**: Points-based (higher is better)
+- Base: 10 points per target
+- Combo multiplier: Hit targets consecutively for bonus points
+- 30 second time limit
 
-### Getting Started
+**Reaction Test**: Speed-based (higher is better)
+- Average of 5 reaction time tests
+- Score = 1000 - average reaction time (ms)
+- Lightning fast (< 200ms) earns maximum points
 
-1. **Login/Create Account**
-   - Navigate to http://localhost:3000
-   - Enter your name
-   - Select your role (Player or Coach)
-   - Choose your branch
-   - Click "Enter Game"
+## 🎯 Game Tips
 
-### For Players
+**Sprint Race**:
+- Click rapidly and consistently
+- Find your rhythm for best times
+- Don't burn out too early!
 
-1. **View Dashboard**
-   - See your total points and rankings
-   - Check earned badges
-   - View today's achievements
+**Target Practice**:
+- Keep your eyes moving across the screen
+- Maintain your combo for 2x, 3x, 4x points!
+- Targets disappear after 2 seconds
 
-2. **Submit Self-Claims**
-   - Click "Submit Achievement"
-   - Select event type or describe your accomplishment
-   - Submit for coach review
+**Reaction Test**:
+- Stay focused and ready
+- Don't anticipate - wait for green!
+- Clicking too early resets the round
 
-3. **Check Leaderboard**
-   - View rankings by player or branch
-   - Toggle between current and past seasons
-   - See where you stand
+## 📋 Tech Stack
 
-### For Coaches
+- **React 18** - UI framework
+- **React Router** - Navigation
+- **Vite** - Build tool and dev server
+- **LocalStorage** - Score persistence
+- **CSS3** - Animations and styling
 
-1. **Award Points**
-   - Select a branch and player
-   - Choose the event type
-   - Add optional notes
-   - Click "Award Points"
-
-2. **Review Self-Claims**
-   - Navigate to "Self-Claims Queue" tab
-   - Review player submissions
-   - Approve or reject with optional feedback
-
-3. **Manage Seasons**
-   - Go to "Season Controls" tab
-   - View current season dates
-   - Reset season when needed (archives current standings)
-
-## 🎮 Pre-Configured Data
-
-### Branches
-- Center St
-- APR
-- BSC
-- Loves Park
-- Ottawa
-
-### Sample Events
-- **Fastest Balanced Drawer** (50 pts - Accuracy)
-- **Zero Errors Day** (30 pts - Accuracy)
-- **Member Compliment of the Day** (40 pts - Service)
-- **Cross-Sell Champion** (50 pts - Sales)
-- **Human Espresso** (20 pts - Teamwork)
-- **Queue Tamer** (25 pts - Speed)
-- **Early Bird** (15 pts - Teamwork)
-- **Problem Solver** (35 pts - Service)
-
-### Sample Badges
-- **Gold Drawer**: 5 days in a row with no balancing differences
-- **Member Whisperer**: 10 member compliments in a season
-- **Closer**: 20 cross-sells completed in a season
-- **Team Hero**: Helped teammates 15 times in a season
-- **Olympian**: Top of the leaderboard
-- **Perfect Week**: Zero errors for an entire week
-
-### Sample Users
-The app comes pre-seeded with a few sample users:
-- **Sarah Johnson** (Player - Center St)
-- **Mike Chen** (Player - Center St)
-- **Emily Rodriguez** (Player - APR)
-- **James Wilson** (Coach - Center St)
-
-## 🏗️ Architecture
-
-### Data Model
+## 🏗️ Project Structure
 
 ```
-User {
-  id, name, role, branch, badges[], totalPoints
-}
-
-Event {
-  id, name, description, category, points, frequency
-}
-
-Award {
-  id, userId, eventId, points, dateAwarded, awardedBy, notes
-}
-
-Badge {
-  id, name, description, conditionType, conditionDetails, iconColor
-}
-
-SelfClaim {
-  id, userId, requestedEventId, description, status, coachId
-}
-
-Season {
-  id, name, startDate, endDate, isActive
-}
+Frontline-Olympics/
+├── frontend/
+│   ├── src/
+│   │   ├── games/           # Game components
+│   │   │   ├── SprintRace.jsx
+│   │   │   ├── TargetPractice.jsx
+│   │   │   └── ReactionTest.jsx
+│   │   ├── pages/           # Page components
+│   │   │   ├── MainMenu.jsx
+│   │   │   └── Leaderboard.jsx
+│   │   ├── App.jsx          # Main app with routing
+│   │   └── main.jsx         # Entry point
+│   └── package.json
+├── backend/                 # (Not used for games)
+└── package.json             # Root scripts
 ```
-
-### API Endpoints
-
-**Users**
-- `POST /api/users/login` - Login/create user
-- `GET /api/users` - Get all users
-- `GET /api/users/:id` - Get user by ID
-
-**Events**
-- `GET /api/events` - Get all events
-- `POST /api/events` - Create event
-- `PUT /api/events/:id` - Update event
-- `DELETE /api/events/:id` - Delete event
-
-**Awards**
-- `GET /api/awards` - Get all awards
-- `GET /api/awards/user/:userId` - Get user's awards
-- `POST /api/awards` - Create award
-
-**Badges**
-- `GET /api/badges` - Get all badges
-- `GET /api/badges/user/:userId` - Get user's badges
-
-**Self-Claims**
-- `GET /api/self-claims` - Get all claims
-- `GET /api/self-claims/pending` - Get pending claims
-- `POST /api/self-claims` - Create claim
-- `PUT /api/self-claims/:id` - Update claim status
-
-**Seasons**
-- `GET /api/seasons` - Get all seasons
-- `GET /api/seasons/active` - Get active season
-- `GET /api/seasons/archived` - Get archived seasons
-- `POST /api/seasons/reset` - Reset season
-
-**Leaderboard**
-- `GET /api/leaderboard/players?seasonId=X` - Get player rankings
-- `GET /api/leaderboard/branches?seasonId=X` - Get branch rankings
-
-**Stats**
-- `GET /api/stats/player/:userId` - Get player stats
 
 ## 🎨 Customization
 
-### Adding New Events
-Coaches can add new events through the Coach Dashboard, or you can modify the initial events in `/backend/data/store.js`.
+Want to add more games or modify existing ones?
 
-### Adding New Badges
-Edit the `badges` array in `/backend/data/store.js` to add new achievement badges.
+**Add a new game**:
+1. Create new component in `frontend/src/games/YourGame.jsx`
+2. Add route in `App.jsx`
+3. Add menu button in `MainMenu.jsx`
+4. Save scores using `saveScore(gameName, score, playerName)`
 
-### Changing Branches
-Modify the `branches` array in `/backend/data/store.js`.
+**Modify scoring**:
+- Edit the `saveScore` calls in each game component
+- Adjust difficulty by changing timer speeds, target counts, etc.
 
-### Styling
-All styling is in CSS files. Main theme variables are in `/frontend/src/index.css`.
+## 🔄 Future Ideas
 
-## 🔄 Future Enhancements
+- Online multiplayer leaderboards
+- More games (Long Jump, Javelin, Swimming, etc.)
+- Power-ups and special abilities
+- Daily challenges
+- Achievement system
+- Sound effects and music
+- Team competitions
+- Tournament mode
 
-This is a prototype. Potential improvements include:
+## 📝 Development
 
-- **Database Integration**: Replace in-memory store with PostgreSQL, MySQL, or MongoDB
-- **Authentication**: Add proper user authentication with passwords/SSO
-- **Real-time Updates**: WebSocket support for live leaderboard updates
-- **Analytics**: Detailed performance analytics and reporting
-- **Mobile App**: Native iOS/Android apps
-- **Notifications**: Email/push notifications for awards and achievements
-- **Integration**: Connect with core banking systems for automated tracking
-- **Admin Panel**: Enhanced admin tools for managing events, badges, and users
-- **Gamification**: Add more game elements like power-ups, team challenges, etc.
-
-## 📝 Development Notes
-
-### Project Structure
-```
-Frontline-Olympics/
-├── backend/
-│   ├── data/
-│   │   └── store.js          # In-memory data store
-│   ├── server.js              # Express server
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── components/        # Reusable components
-│   │   ├── pages/             # Page components
-│   │   ├── api.js             # API utility functions
-│   │   ├── App.jsx            # Main app component
-│   │   └── main.jsx           # Entry point
-│   ├── index.html
-│   ├── vite.config.js
-│   └── package.json
-└── package.json               # Root package.json
+**Run frontend only**:
+```bash
+cd frontend
+npm run dev
 ```
 
-### Data Persistence
-Currently, all data is stored in memory and will be lost when the server restarts. To persist data:
-1. Replace the in-memory store with a database
-2. Or implement file-based storage for the prototype
+**Build for production**:
+```bash
+cd frontend
+npm run build
+```
 
 ## 🤝 Contributing
 
-This is a prototype for demonstration. Feel free to fork and customize for your organization's needs.
-
-## 📄 License
-
-Copyright © 2025. All rights reserved.
+Feel free to fork and add your own games! The codebase is designed to make adding new games easy.
 
 ## 🆘 Support
 
-For questions or issues, please contact your system administrator or the development team.
+Having issues?
+- Check that you're running Node.js v16+
+- Clear your browser's localStorage if leaderboard isn't loading
+- Make sure port 3000 is available
 
 ---
 
-**Built with ❤️ for frontline heroes!** 🏅
+**Have fun competing! 🏅**
+
+May the best athlete win! 🏆
