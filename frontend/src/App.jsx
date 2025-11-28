@@ -1,111 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-// Pages
-import LoginPage from './pages/LoginPage';
-import PlayerDashboard from './pages/PlayerDashboard';
-import CoachDashboard from './pages/CoachDashboard';
-import LeaderboardPage from './pages/LeaderboardPage';
-import BadgeGalleryPage from './pages/BadgeGalleryPage';
-
-// Components
-import Navbar from './components/Navbar';
+import MainMenu from './pages/MainMenu';
+import SprintRace from './games/SprintRace';
+import TargetPractice from './games/TargetPractice';
+import ReactionTest from './games/ReactionTest';
+import Leaderboard from './pages/Leaderboard';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [playerName, setPlayerName] = useState(
+    localStorage.getItem('playerName') || ''
+  );
+  const [scores, setScores] = useState(
+    JSON.parse(localStorage.getItem('scores') || '[]')
+  );
 
-  // Load user from localStorage on mount
-  useEffect(() => {
-    const savedUser = localStorage.getItem('currentUser');
-    if (savedUser) {
-      setCurrentUser(JSON.parse(savedUser));
-    }
-  }, []);
+  const saveScore = (game, score, playerName) => {
+    const newScore = {
+      id: Date.now(),
+      game,
+      score,
+      playerName,
+      timestamp: new Date().toISOString(),
+    };
 
-  // Save user to localStorage when it changes
-  useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    } else {
-      localStorage.removeItem('currentUser');
-    }
-  }, [currentUser]);
-
-  const handleLogin = (user) => {
-    setCurrentUser(user);
+    const updatedScores = [...scores, newScore];
+    setScores(updatedScores);
+    localStorage.setItem('scores', JSON.stringify(updatedScores));
   };
 
-  const handleLogout = () => {
-    setCurrentUser(null);
+  const setName = (name) => {
+    setPlayerName(name);
+    localStorage.setItem('playerName', name);
   };
 
   return (
     <BrowserRouter>
       <div className="App">
-        {currentUser && <Navbar user={currentUser} onLogout={handleLogout} />}
-
         <Routes>
           <Route
             path="/"
-            element={
-              currentUser ? (
-                currentUser.role === 'player' ? (
-                  <Navigate to="/dashboard" replace />
-                ) : (
-                  <Navigate to="/coach" replace />
-                )
-              ) : (
-                <LoginPage onLogin={handleLogin} />
-              )
-            }
+            element={<MainMenu playerName={playerName} setPlayerName={setName} />}
           />
-
           <Route
-            path="/dashboard"
-            element={
-              currentUser && currentUser.role === 'player' ? (
-                <PlayerDashboard user={currentUser} />
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
+            path="/sprint"
+            element={<SprintRace playerName={playerName} saveScore={saveScore} />}
           />
-
           <Route
-            path="/coach"
-            element={
-              currentUser && currentUser.role === 'coach' ? (
-                <CoachDashboard user={currentUser} />
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
+            path="/target"
+            element={<TargetPractice playerName={playerName} saveScore={saveScore} />}
           />
-
           <Route
-            path="/leaderboard"
-            element={
-              currentUser ? (
-                <LeaderboardPage user={currentUser} />
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
+            path="/reaction"
+            element={<ReactionTest playerName={playerName} saveScore={saveScore} />}
           />
-
-          <Route
-            path="/badges"
-            element={
-              currentUser ? (
-                <BadgeGalleryPage user={currentUser} />
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
-          />
-
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/leaderboard" element={<Leaderboard scores={scores} />} />
         </Routes>
       </div>
     </BrowserRouter>

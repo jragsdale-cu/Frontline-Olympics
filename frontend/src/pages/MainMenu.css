@@ -1,0 +1,85 @@
+.player-welcome {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.player-welcome p {
+  font-size: 24px;
+  color: var(--dark);
+  margin: 0;
+}
+
+.player-welcome strong {
+  color: var(--blue);
+}
+
+.change-name-btn {
+  padding: 8px 16px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.change-name-btn:hover {
+  opacity: 0.9;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.game-option {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.game-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.game-icon {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+
+.game-option h3 {
+  font-size: 24px;
+  color: var(--dark);
+  margin: 0;
+}
+
+.game-option p {
+  font-size: 16px;
+  color: #6b7280;
+  text-align: center;
+  margin: 0;
+  flex: 1;
+}
+
+.game-option .btn {
+  width: 100%;
+  margin-top: 10px;
+}
